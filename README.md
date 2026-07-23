@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Neuro Oceans — Company Website
 
-## Getting Started
+Company portfolio site. Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS v4.
 
-First, run the development server:
+## Getting started
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+cp .env.example .env.local   # optional locally; required in production
+npm run dev                  # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Scripts
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| Command                | Does                                    |
+| ---------------------- | --------------------------------------- |
+| `npm run dev`          | Dev server with hot reload              |
+| `npm run build`        | Production build                        |
+| `npm start`            | Serve the production build              |
+| `npm run lint`         | ESLint                                  |
+| `npm run typecheck`    | TypeScript, no emit                     |
+| `npm run format`       | Prettier write (sorts Tailwind classes) |
+| `npm run format:check` | Prettier check, no writes               |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Where things live
 
-## Learn More
+| Path              | Holds                                            |
+| ----------------- | ------------------------------------------------ |
+| `src/app/`        | Routes only — thin files, no business logic      |
+| `src/components/` | `ui/` · `layout/` · `sections/` (see its README) |
+| `src/content/`    | Typed site content — edit copy here              |
+| `src/lib/`        | Content getters, SEO helper, utilities           |
+| `src/types/`      | Shared content types                             |
+| `public/images/`  | Static assets                                    |
 
-To learn more about Next.js, take a look at the following resources:
+**To change company name, tagline or navigation:** `src/content/site.ts`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Current state
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Structure and wiring are complete. Routes resolve, metadata and the sitemap are
+generated, and the content layer is typed — but pages render placeholder text
+and no components or visual design have been built yet.
 
-## Deploy on Vercel
+## Read next
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**[`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md)** — the layering rule, a
+"where does my new file go?" table, the reasoning behind each decision, and
+recipes for adding pages and content types. Read it before adding files.
